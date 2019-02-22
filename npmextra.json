@@ -2,10 +2,10 @@
   "gitzone": {
     "module": {
       "githost": "gitlab.com",
-      "gituser": "pushrocks",
+      "gitscope": "pushrocks",
       "gitrepo": "smartjwt",
       "shortDescription": "a package for handling jwt",
-      "npmPackageName": "@pushrocks/smartjwt",
+      "npmPackagename": "@pushrocks/smartjwt",
       "license": "MIT",
       "projectDomain": "push.rocks"
     }
