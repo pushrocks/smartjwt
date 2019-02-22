@@ -1,0 +1,17 @@
+{
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gituser": "pushrocks",
+      "gitrepo": "smartjwt",
+      "shortDescription": "a package for handling jwt",
+      "npmPackageName": "@pushrocks/smartjwt",
+      "license": "MIT",
+      "projectDomain": "push.rocks"
+    }
+  },
+  "npmci": {
+    "npmGlobalTools": [],
+    "npmAccessLevel": "public"
+  }
+}
