@@ -1,2 +1,4 @@
-const removeme = {};
-export { removeme };
+import * as jsonwebtoken from 'jsonwebtoken';
+export {
+  jsonwebtoken
+};

@@ -20,6 +20,8 @@ a package for handling jwt
 
 For further information read the linked docs at the top of this readme.
 
+This package is intended for being used serverside. There is a corresponding client package for browsers calls @pushrocks/webtoken
+
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
 | By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
 
