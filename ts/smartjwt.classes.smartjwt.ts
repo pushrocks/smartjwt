@@ -14,15 +14,19 @@ export class SmartJwt {
    * creates a JWT
    */
   public async createJWT(payloadArg: any) {
-    return plugins.jsonwebtoken.sign(payloadArg, this.privateKey.toPemString());
+    return plugins.jsonwebtoken.sign(payloadArg, this.privateKey.toPemString(), {
+      algorithm: 'RS256'
+    });
   }
 
   /**
    * checks a JWT
    */
   public async verifyJWTAndGetData(jwtArg: string) {
-    return plugins.jsonwebtoken.verify(jwtArg, this.publicKey.toPemString());
-  };
+    return plugins.jsonwebtoken.verify(jwtArg, this.publicKey.toPemString(), {
+      algorithms: ['RS256']
+    });
+  }
 
   /**
    * sets a private key to create jwts with
