@@ -1,5 +1,1 @@
-import * as plugins from './smartjwt.plugins';
-
-export class SmartJwt {
-  
-}
+export * from './smartjwt.classes.smartjwt';
