@@ -21,7 +21,7 @@
     "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {
-    "@pushrocks/smartcrypto": "^1.0.5",
+    "@pushrocks/smartcrypto": "^1.0.7",
     "@types/jsonwebtoken": "^8.3.4",
     "jsonwebtoken": "^8.5.1"
   }
