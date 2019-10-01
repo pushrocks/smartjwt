@@ -24,5 +24,16 @@
     "@pushrocks/smartcrypto": "^1.0.7",
     "@types/jsonwebtoken": "^8.3.4",
     "jsonwebtoken": "^8.5.1"
-  }
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "dist_ts_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

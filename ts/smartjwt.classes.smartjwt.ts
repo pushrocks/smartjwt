@@ -13,7 +13,7 @@ export class SmartJwt {
   public publicKey: plugins.smartcrypto.PublicKey;
   public privateKey: plugins.smartcrypto.PrivateKey;
 
-  constructor() {};
+  constructor() {}
 
   /**
    * creates a JWT
@@ -41,7 +41,7 @@ export class SmartJwt {
   }
 
   /**
-   * sets a public key 
+   * sets a public key
    */
   public async setPublicKey(publicKey: plugins.smartcrypto.PublicKey) {
     this.publicKey = publicKey;
@@ -64,7 +64,6 @@ export class SmartJwt {
     this.privateKey = plugins.smartcrypto.PrivateKey.fromPemString(jsonKeyPair.privatePem);
     this.publicKey = plugins.smartcrypto.PublicKey.fromPemString(jsonKeyPair.publicPem);
   }
-
 
   /**
    * creates a new keypair
