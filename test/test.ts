@@ -15,7 +15,7 @@ tap.test('should create a valid jwt', async () => {
 });
 
 tap.test('should create a new jwt', async () => {
-  testJwt = await smartjwtInstance.createJWT({hi: 'there'});
+  testJwt = await smartjwtInstance.createJWT({ hi: 'there' });
   console.log(testJwt);
 });
 
@@ -24,5 +24,18 @@ tap.test('should verify a jwt', async () => {
   console.log(data);
 });
 
+tap.test('should not verify a wrong jwt', async () => {
+  const jwt2 = await smartjwtInstance.createJWT({ wow: 'soclear' });
+  const jwt2Array = jwt2.split('.');
+  const testJwtArray = testJwt.split('.');
+  const newJwt = `${testJwtArray[0]}.${jwt2Array[1]}.${testJwtArray[2]}`;
+  let error: Error;
+  try {
+    await smartjwtInstance.verifyJWTAndGetData(newJwt);
+  } catch (e) {
+    error = e;
+  }
+  expect(error).to.be.instanceOf(Error);
+});
 
 tap.start();
