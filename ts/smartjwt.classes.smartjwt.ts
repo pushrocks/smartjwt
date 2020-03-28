@@ -73,4 +73,8 @@ export class SmartJwt {
     this.setPrivateKey(keypair.privateKey);
     this.setPublicKey(keypair.publicKey);
   }
+
+  public async init() {
+    await this.createNewKeyPair();
+  }
 }
