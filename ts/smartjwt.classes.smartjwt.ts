@@ -8,7 +8,7 @@ export interface ISmartJWTJSONKeypair {
 /**
  * A class to create and validate JWTs and their keys
  */
-export class SmartJwt {
+export class SmartJwt<T extends object = any> {
   public smartcryptoInstance = new plugins.smartcrypto.Smartcrypto();
   public publicKey: plugins.smartcrypto.PublicKey;
   public privateKey: plugins.smartcrypto.PrivateKey;
@@ -18,7 +18,7 @@ export class SmartJwt {
   /**
    * creates a JWT
    */
-  public async createJWT(payloadArg: any) {
+  public async createJWT(payloadArg: T) {
     return plugins.jsonwebtoken.sign(payloadArg, this.privateKey.toPemString(), {
       algorithm: 'RS256'
     });
@@ -27,10 +27,11 @@ export class SmartJwt {
   /**
    * checks a JWT
    */
-  public async verifyJWTAndGetData(jwtArg: string) {
-    return plugins.jsonwebtoken.verify(jwtArg, this.publicKey.toPemString(), {
+  public async verifyJWTAndGetData(jwtArg: string): Promise<T> {
+    const result = plugins.jsonwebtoken.verify(jwtArg, this.publicKey.toPemString(), {
       algorithms: ['RS256']
     });
+    return result as any;
   }
 
   /**
@@ -72,6 +73,14 @@ export class SmartJwt {
     const keypair = await this.smartcryptoInstance.createKeyPair();
     this.setPrivateKey(keypair.privateKey);
     this.setPublicKey(keypair.publicKey);
+  }
+
+  /**
+   * when you just want to validate something
+   * @param publicPemKey
+   */
+  public setPublicPemKeyForVerification(publicPemKey: string) {
+    this.publicKey = plugins.smartcrypto.PublicKey.fromPemString(publicPemKey);
   }
 
   public async init() {

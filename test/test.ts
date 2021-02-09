@@ -22,6 +22,7 @@ tap.test('should create a new jwt', async () => {
 tap.test('should verify a jwt', async () => {
   const data = await smartjwtInstance.verifyJWTAndGetData(testJwt);
   console.log(data);
+  console.log(smartjwtInstance.publicKey.toPemString());
 });
 
 tap.test('should not verify a wrong jwt', async () => {
@@ -37,5 +38,12 @@ tap.test('should not verify a wrong jwt', async () => {
   }
   expect(error).to.be.instanceOf(Error);
 });
+
+tap.test('should verify a jwt on another instance', async () => {
+  const secondSmartJwtInstance = new smartjwt.SmartJwt();
+  secondSmartJwtInstance.setPublicPemKeyForVerification(smartjwtInstance.publicKey.toPemString());
+  const result = secondSmartJwtInstance.verifyJWTAndGetData(testJwt);
+  console.log(result);
+})
 
 tap.start();
