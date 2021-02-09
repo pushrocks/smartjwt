@@ -21,6 +21,8 @@ tap.test('should create a new jwt', async () => {
 
 tap.test('should verify a jwt', async () => {
   const data = await smartjwtInstance.verifyJWTAndGetData(testJwt);
+  // tslint:disable-next-line: no-unused-expression
+  expect(data).to.not.be.null;
   console.log(data);
   console.log(smartjwtInstance.publicKey.toPemString());
 });
@@ -44,6 +46,6 @@ tap.test('should verify a jwt on another instance', async () => {
   secondSmartJwtInstance.setPublicPemKeyForVerification(smartjwtInstance.publicKey.toPemString());
   const result = secondSmartJwtInstance.verifyJWTAndGetData(testJwt);
   console.log(result);
-})
+});
 
 tap.start();
