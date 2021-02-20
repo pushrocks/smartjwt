@@ -15,25 +15,29 @@
   "devDependencies": {
     "@gitzone/tsbuild": "^2.1.25",
     "@gitzone/tstest": "^1.0.52",
-    "@pushrocks/tapbundle": "^3.2.10",
-    "@types/node": "^14.14.25",
+    "@pushrocks/tapbundle": "^3.2.14",
+    "@types/node": "^14.14.31",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {
-    "@pushrocks/smartcrypto": "^1.0.9",
+    "@pushrocks/smartcrypto": "^1.0.11",
     "@types/jsonwebtoken": "^8.5.0",
     "jsonwebtoken": "^8.5.1"
   },
   "files": [
-    "ts/*",
-    "ts_web/*",
-    "dist/*",
-    "dist_web/*",
-    "dist_ts_web/*",
-    "assets/*",
+    "ts/**/*",
+    "ts_web/**/*",
+    "dist/**/*",
+    "dist_*/**/*",
+    "dist_ts/**/*",
+    "dist_ts_web/**/*",
+    "assets/**/*",
     "cli.js",
     "npmextra.json",
     "readme.md"
+  ],
+  "browserslist": [
+    "last 1 chrome versions"
   ]
 }

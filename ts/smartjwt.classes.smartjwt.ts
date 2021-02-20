@@ -20,7 +20,7 @@ export class SmartJwt<T extends object = any> {
    */
   public async createJWT(payloadArg: T) {
     return plugins.jsonwebtoken.sign(payloadArg, this.privateKey.toPemString(), {
-      algorithm: 'RS256'
+      algorithm: 'RS256',
     });
   }
 
@@ -29,7 +29,7 @@ export class SmartJwt<T extends object = any> {
    */
   public async verifyJWTAndGetData(jwtArg: string): Promise<T> {
     const result = plugins.jsonwebtoken.verify(jwtArg, this.publicKey.toPemString(), {
-      algorithms: ['RS256']
+      algorithms: ['RS256'],
     });
     return result as any;
   }
@@ -54,7 +54,7 @@ export class SmartJwt<T extends object = any> {
   public getKeyPairAsJson(): ISmartJWTJSONKeypair {
     return {
       privatePem: this.privateKey.toPemString(),
-      publicPem: this.publicKey.toPemString()
+      publicPem: this.publicKey.toPemString(),
     };
   }
 
