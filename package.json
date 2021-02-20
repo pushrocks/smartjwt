@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartjwt",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "private": false,
   "description": "a package for handling jwt",
   "main": "dist_ts/index.js",
